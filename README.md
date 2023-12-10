@@ -1,6 +1,6 @@
 # `education-theme`
 
-> TODO: description
+> TODO: description.
 
 ## Installation
 
