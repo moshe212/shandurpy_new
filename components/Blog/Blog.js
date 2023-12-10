@@ -69,7 +69,7 @@ function Blog() {
 
   // Youtube Video
   const [player, setPlayer] = useState([]);
-  const [videoId, setVideoId] = useState("6p0VM-yUpGk");
+  const [videoId, setVideoId] = useState("ZcXns4F7DCE");
   const [openPopup, setOpenPopup] = useState(false);
 
   const handleClickOpen = (id) => {
