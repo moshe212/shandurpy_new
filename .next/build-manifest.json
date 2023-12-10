@@ -15,15 +15,15 @@
   ],
   "rootMainFiles": [],
   "pages": {
+    "/404": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/404.js"
+    ],
     "/[locale]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/[locale].js"
-    ],
-    "/[locale]/contact": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/[locale]/contact.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

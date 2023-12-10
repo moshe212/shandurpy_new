@@ -22,6 +22,7 @@ import Subscribe from "~/components/SubscribeForm";
 import Footer from "~/components/Footer";
 import PageNav from "~/components/PageNav";
 import Notification from "~/components/Notification";
+// import { v2 as cloudinary } from "cloudinary";
 
 const sectionMargin = (margin) => margin * 20;
 const useStyles = makeStyles({ uniqId: "home" })((theme) => ({

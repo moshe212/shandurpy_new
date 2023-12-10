@@ -100,7 +100,9 @@ function Blog() {
       rel: 0,
       showinfo: 1,
       mute: 0,
-      origin: "http://localhost:3011",
+      origin: "http://localhost",
+      // origin: "http://localhost:3011",
+      // origin: "https://harav-shandurpy.vercel.app",
     },
   };
 
