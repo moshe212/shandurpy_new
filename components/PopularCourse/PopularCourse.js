@@ -56,7 +56,7 @@ const courseData = [
   },
 ];
 
-function PopularCourse({ latestLecture = courseData }) {
+function PopularCourse({ latestLecture }) {
   console.log("latestLecture", latestLecture);
   // const courseData = latestLecture;
   const slider = useRef(null);
@@ -67,7 +67,7 @@ function PopularCourse({ latestLecture = courseData }) {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const lastSlide = Math.floor(latestLecture.length - 2);
+  const lastSlide = Math.floor(latestLecture?.length - 2);
   const { classes, cx } = useStyle();
 
   const settings = {
@@ -104,7 +104,7 @@ function PopularCourse({ latestLecture = courseData }) {
   };
 
   if (theme.direction === "rtl" && slider.current) {
-    const lastSlide = Math.floor(latestLecture.length - 2);
+    const lastSlide = Math.floor(latestLecture?.length - 2);
     slider.current.slickGoTo(lastSlide);
   }
 
@@ -132,7 +132,7 @@ function PopularCourse({ latestLecture = courseData }) {
                 <div />
               </div>
             )}
-            {latestLecture.map((item, index) => (
+            {latestLecture?.map((item, index) => (
               <div key={index.toString()} className={classes.item}>
                 <GeneralCard
                   img={item.imgUrl ? item.imgUrl : imgAPI.education[8]}
