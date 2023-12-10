@@ -135,7 +135,7 @@ function PopularCourse({ latestLecture }) {
             {latestLecture?.map((item, index) => (
               <div key={index.toString()} className={classes.item}>
                 <GeneralCard
-                  img={item.imgUrl ? item.imgUrl : imgAPI.education[8]}
+                  img={item.imgUrl}
                   title={item.caption}
                   desc={item.desc}
                   link={item.url}
