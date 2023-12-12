@@ -111,7 +111,7 @@ function MyApp(props) {
 
   const toggleDirection = (dir) => {
     document.dir = dir;
-    console.log("Toggle direction", dir, theme.direction);
+    //console.log("Toggle direction", dir, theme.direction);
     // set theme
     setTheme({
       ...theme,

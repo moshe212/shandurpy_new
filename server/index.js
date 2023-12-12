@@ -27,7 +27,7 @@ app.use(
 );
 
 app.get("/list_files", async (req, res) => {
-  console.log("query", req.query);
+  //console.log("query", req.query);
   const tagName = req.query.topic;
 
   let imgFileList = [];
@@ -38,12 +38,12 @@ app.get("/list_files", async (req, res) => {
     context: true,
   });
 
-  console.log("resultIMG", imgResponse.resources);
+  //console.log("resultIMG", imgResponse.resources);
   imgFileList = imgResponse.resources.map((resource) => ({
     id: resource.public_id.slice(-2),
     url: resource.url,
   }));
-  console.log("img", imgFileList);
+  //console.log("img", imgFileList);
 
   const audioResponse = await cloudinary.api.resources_by_tag(tagName, {
     resource_type: "video",
@@ -53,19 +53,19 @@ app.get("/list_files", async (req, res) => {
   });
 
   const arrangeFileArray = audioResponse.resources.map((file, index) => {
-    console.log("index", index);
+    //console.log("index", index);
     const endLink = file.public_id.slice(-2);
     const id = endLink.includes("/") ? endLink.slice(-1) : endLink;
-    console.log("id", id);
+    //console.log("id", id);
     const imgObj = imgFileList.find((obj) => obj.id === id);
-    console.log("imgObj", imgObj);
+    //console.log("imgObj", imgObj);
     return {
       imgUrl: imgObj?.url,
       url: file.url,
       caption: file.context.custom.caption,
     };
   });
-  console.log(arrangeFileArray);
+  //console.log(arrangeFileArray);
   res.json(arrangeFileArray);
 
   // cloudinary.api
@@ -76,12 +76,12 @@ app.get("/list_files", async (req, res) => {
   //     context: true,
   //   })
   //   .then((result) => {
-  //     console.log("resultIMG", result.resources);
+  //     //console.log("resultIMG", result.resources);
   //     imgFileList = result.resources.map((resource) => ({
   //       id: resource.public_id.slice(-2),
   //       url: resource.url,
   //     }));
-  //     console.log("img", imgFileList);
+  //     //console.log("img", imgFileList);
   //   });
 
   // cloudinary.api
@@ -93,25 +93,25 @@ app.get("/list_files", async (req, res) => {
   //   })
   //   .then((result) => {
   //     const arrangeFileArray = result.resources.map((file, index) => {
-  //       console.log("index", index);
+  //       //console.log("index", index);
   //       const endLink = file.public_id.slice(-2);
   //       const id = endLink.includes("/") ? endLink.slice(-1) : endLink;
-  //       console.log("id", id);
+  //       //console.log("id", id);
   //       const imgObj = imgFileList.find((obj) => obj.id === id);
-  //       console.log("imgObj", imgObj);
+  //       //console.log("imgObj", imgObj);
   //       return {
   //         imgUrl: imgObj?.url,
   //         url: file.url,
   //         caption: file.context.custom.caption,
   //       };
   //     });
-  //     console.log(arrangeFileArray);
+  //     //console.log(arrangeFileArray);
   //     res.json(arrangeFileArray);
   //   });
 });
 
 app.get("/last_lecture", async (req, res) => {
-  console.log("lastlecture");
+  //console.log("lastlecture");
   let imgFileList = [];
   const imgResponse = await cloudinary.api.resources_by_tag(
     "shandurpy_lecture",
@@ -151,19 +151,19 @@ app.get("/last_lecture", async (req, res) => {
   });
 
   const fiveLatestObjs = audioResponse.resources.slice(0, 5);
-  console.log("img", imgFileList);
+  //console.log("img", imgFileList);
   const arrangeFileArray = fiveLatestObjs.map((file) => {
     const id = file.public_id.slice(-2);
-    console.log("id", id);
+    //console.log("id", id);
     const imgUrlObj = imgFileList.find((item) => item.id === id);
-    console.log("imgUrlObj", imgUrlObj);
+    //console.log("imgUrlObj", imgUrlObj);
     return {
       imgUrl: imgUrlObj?.url,
       url: file.url,
       caption: file.context.custom.caption,
     };
   });
-  console.log(arrangeFileArray);
+  //console.log(arrangeFileArray);
   res.json(arrangeFileArray);
 
   // cloudinary.api
@@ -178,7 +178,7 @@ app.get("/last_lecture", async (req, res) => {
   //       id: resource.public_id.slice(-2),
   //       url: resource.url,
   //     }));
-  //     // console.log("img", imgFileList);
+  //     // //console.log("img", imgFileList);
   //   });
 
   // cloudinary.api
@@ -202,19 +202,19 @@ app.get("/last_lecture", async (req, res) => {
   //     });
 
   //     const fiveLatestObjs = result.resources.slice(0, 5);
-  //     console.log("img", imgFileList);
+  //     //console.log("img", imgFileList);
   //     const arrangeFileArray = fiveLatestObjs.map((file) => {
   //       const id = file.public_id.slice(-2);
-  //       console.log("id", id);
+  //       //console.log("id", id);
   //       const imgUrlObj = imgFileList.find((item) => item.id === id);
-  //       console.log("imgUrlObj", imgUrlObj);
+  //       //console.log("imgUrlObj", imgUrlObj);
   //       return {
   //         imgUrl: imgUrlObj?.url,
   //         url: file.url,
   //         caption: file.context.custom.caption,
   //       };
   //     });
-  //     console.log(arrangeFileArray);
+  //     //console.log(arrangeFileArray);
   //     res.json(arrangeFileArray);
   //   });
 });
@@ -238,5 +238,5 @@ app.get("/audio", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  //console.log(`Server listening at http://localhost:${port}`);
 });

@@ -26,7 +26,7 @@ export default function General(props) {
             controls
             style={{ width: "220px", marginTop: "54px" }}
             onPlay={() => {
-              console.log("play");
+              //console.log("play");
               // Get the element by its ID
               const element = document.getElementById(
                 `catgory_property${index}`
@@ -36,7 +36,7 @@ export default function General(props) {
               element.classList.add(classes.after_play);
             }}
             onPause={() => {
-              console.log("stop");
+              //console.log("stop");
               // Get the element by its ID
               const element = document.getElementById(
                 `catgory_property${index}`

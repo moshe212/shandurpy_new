@@ -28,7 +28,7 @@ function SelectLang(props) {
 
   function handleChange(event) {
     const lang = event.target.value;
-    console.log("value", lang);
+    //console.log("value", lang);
     setValues((oldValues) => ({
       ...oldValues,
       [event.target.name]: lang,

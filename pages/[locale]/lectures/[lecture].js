@@ -70,7 +70,7 @@ async function fetchData({ topic }) {
     return listFiles;
   } catch (error) {
     // Handle the error here
-    console.log(error);
+    //console.log(error);
     return null;
   }
 }
@@ -87,7 +87,7 @@ function Lecture(props) {
   const { t } = useTranslation("common");
 
   const [lecturesData, setLecturesData] = useState();
-  console.log("lecturesData", lecture, lecturesData);
+  //console.log("lecturesData", lecture, lecturesData);
 
   useEffect(() => {
     const fetchDataAndSetLectures = async ({ topic }) => {

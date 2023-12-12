@@ -8,8 +8,8 @@ import useStyles from "./cards-style";
 function Category(props) {
   const { classes } = useStyles();
   const { img, title, desc, link, isAudioPlayer, index } = props;
-  console.log("isAudioPlayer", isAudioPlayer);
-  console.log("img", img);
+  //console.log("isAudioPlayer", isAudioPlayer);
+  //console.log("img", img);
   return (
     <div className={classes.cardWrap}>
       <span className={classes.fold} />
@@ -34,7 +34,7 @@ function Category(props) {
                 controls
                 style={{ width: "255px", marginTop: "54px" }}
                 onPlay={() => {
-                  console.log("play");
+                  //console.log("play");
                   // Get the element by its ID
                   const element = document.getElementById(
                     `catgory_property${index}`
@@ -44,7 +44,7 @@ function Category(props) {
                   element.classList.add(classes.after_play);
                 }}
                 onPause={() => {
-                  console.log("stop");
+                  //console.log("stop");
                   // Get the element by its ID
                   const element = document.getElementById(
                     `catgory_property${index}`

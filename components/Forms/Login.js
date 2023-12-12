@@ -1,33 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import Icon from '@mui/material/Icon';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { useTranslation } from 'next-i18next';
-import routeLink from '~/public/text/link';
-import { useText } from '~/theme/common';
-import SocialAuth from './SocialAuth';
-import Title from '../Title';
-import AuthFrame from './AuthFrame';
-import useStyles from './form-style';
+import React, { useState, useEffect } from "react";
+import Icon from "@mui/material/Icon";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Grid from "@mui/material/Grid";
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { useTranslation } from "next-i18next";
+import routeLink from "~/public/text/link";
+import { useText } from "~/theme/common";
+import SocialAuth from "./SocialAuth";
+import Title from "../Title";
+import AuthFrame from "./AuthFrame";
+import useStyles from "./form-style";
 
 function Login() {
   const { classes, cx } = useStyles();
   const { classes: text } = useText();
 
-  const { t, i18n } = useTranslation('common');
-  const curLang = '/' + i18n.language;
+  const { t, i18n } = useTranslation("common");
+  const curLang = "/" + i18n.language;
 
   const [values, setValues] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   useEffect(() => {
-    ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
+    ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
       if (value !== values.password) {
         return false;
       }
@@ -37,41 +37,40 @@ function Login() {
 
   const [check, setCheck] = useState(false);
 
-  const handleChange = name => event => {
+  const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const handleCheck = event => {
+  const handleCheck = (event) => {
     setCheck(event.target.checked);
   };
 
   const handleSubmit = () => {
-    console.log('data submited');
+    console.log("data submited");
   };
 
   return (
-    <AuthFrame title={t('login_title')} subtitle={t('login_subtitle')}>
+    <AuthFrame title={t("login_title")} subtitle={t("login_subtitle")}>
       <div>
         <div className={classes.head}>
-          <Title
-            head={t('login')}
-            desc=""
-            align="left"
-            color="secondary"
-          />
-          <Button size="small" className={classes.buttonLink} href={curLang + routeLink.education.register}>
-            <Icon className={cx(classes.icon, classes.signArrow)}>arrow_forward</Icon>
-            {t('login_create')}
+          <Title head={t("login")} desc="" align="left" color="secondary" />
+          <Button
+            size="small"
+            className={classes.buttonLink}
+            href={curLang + routeLink.education.register}
+          >
+            <Icon className={cx(classes.icon, classes.signArrow)}>
+              arrow_forward
+            </Icon>
+            {t("login_create")}
           </Button>
         </div>
         <SocialAuth />
         <div className={classes.separator}>
-          <Typography>
-            {t('login_or')}
-          </Typography>
+          <Typography>{t("login_or")}</Typography>
         </div>
         <ValidatorForm
-          onError={errors => console.log(errors)}
+          onError={(errors) => console.log(errors)}
           onSubmit={handleSubmit}
         >
           <Grid container spacing={3}>
@@ -79,12 +78,12 @@ function Login() {
               <TextValidator
                 variant="filled"
                 className={classes.input}
-                label={t('login_email')}
-                onChange={handleChange('email')}
+                label={t("login_email")}
+                onChange={handleChange("email")}
                 name="email"
                 value={values.email}
-                validators={['required', 'isEmail']}
-                errorMessages={['This field is required', 'Email is not valid']}
+                validators={["required", "isEmail"]}
+                errorMessages={["This field is required", "Email is not valid"]}
               />
             </Grid>
             <Grid item xs={12}>
@@ -92,10 +91,10 @@ function Login() {
                 variant="filled"
                 type="password"
                 className={classes.input}
-                label={t('login_password')}
-                validators={['required']}
-                onChange={handleChange('password')}
-                errorMessages={['This field is required']}
+                label={t("login_password")}
+                validators={["required"]}
+                onChange={handleChange("password")}
+                errorMessages={["This field is required"]}
                 name="password"
                 value={values.password}
               />
@@ -103,7 +102,7 @@ function Login() {
           </Grid>
           <div className={classes.formHelper}>
             <FormControlLabel
-              control={(
+              control={
                 <Checkbox
                   checked={check}
                   onChange={(e) => handleCheck(e)}
@@ -111,20 +110,24 @@ function Login() {
                   value={check}
                   className={classes.check}
                 />
-              )}
-              label={(
-                <span className={text.caption}>
-                  {t('login_remember')}
-                </span>
-              )}
+              }
+              label={
+                <span className={text.caption}>{t("login_remember")}</span>
+              }
             />
             <Button size="small" className={classes.buttonLink} href="#">
-              {t('login_forgot')}
+              {t("login_forgot")}
             </Button>
           </div>
           <div className={classes.btnArea}>
-            <Button variant="contained" fullWidth type="submit" color="secondary" size="large">
-              {t('continue')}
+            <Button
+              variant="contained"
+              fullWidth
+              type="submit"
+              color="secondary"
+              size="large"
+            >
+              {t("continue")}
             </Button>
           </div>
         </ValidatorForm>

@@ -64,16 +64,16 @@ const useStyles = makeStyles({ uniqId: "home" })((theme) => ({
 }));
 
 async function fetchData() {
-  console.log("server_address", process.env);
+  //console.log("server_address", process.env);
   try {
     const res = await axios.get(`${process.env.server_address}/last_lecture`);
     // const res = await axios.get(`/api/fileList?topic=${topic}`);
     const listFiles = res.data;
-    console.log(listFiles);
+    //console.log(listFiles);
     return listFiles;
   } catch (error) {
     // Handle the error here
-    console.log(error);
+    //console.log(error);
     return null;
   }
 }

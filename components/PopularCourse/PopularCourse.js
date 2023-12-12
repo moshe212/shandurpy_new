@@ -57,7 +57,7 @@ const courseData = [
 ];
 
 function PopularCourse({ latestLecture = courseData }) {
-  console.log("latestLecture", latestLecture);
+  //console.log("latestLecture", latestLecture);
   // const courseData = latestLecture;
   const slider = useRef(null);
   const { t } = useTranslation("common");

@@ -57,9 +57,9 @@ function Explore({ isAudioPlayer, data = categoriesData, lectureName }) {
   const { t } = useTranslation("common");
 
   const { classes } = useStyles();
-  console.log("lectureName", lectureName);
-  console.log("img", imgAPI.category.emuna);
-  console.log("data", data);
+  //console.log("lectureName", lectureName);
+  //console.log("img", imgAPI.category.emuna);
+  //console.log("data", data);
   const lectureNameArray = {
     parashat_shavua: "פרשת שבוע",
     emuna: "אמונה",

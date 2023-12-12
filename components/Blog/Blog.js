@@ -101,11 +101,11 @@ function Blog() {
       showinfo: 1,
       mute: 0,
 
-      // origin: "http://localhost:3011",
-      origin: "http://harav-shandurpy.vercel.app",
+      origin: "http://localhost:3011",
+      // origin: "http://harav-shandurpy.vercel.app",
     },
   };
-
+  console.log("blog");
   return (
     <div className={classes.root}>
       <Dialog
@@ -126,9 +126,12 @@ function Blog() {
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          {yt.use && (
+          <div>
+            <h2>דיסק לקח שלמה - שיעורים במוסר, אמונה ופסיכולוגיה</h2>
+          </div>
+          {/* {yt.use && (
             <YouTube videoId={videoId} onReady={_onReady} opts={opts} />
-          )}
+          )} */}
         </DialogContent>
       </Dialog>
       {!isTablet && <div className={classes.deco} />}
