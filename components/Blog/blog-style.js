@@ -75,6 +75,7 @@ const featuredStyles = makeStyles({ uniqId: "feature" })(
       },
       '& div[class*="slick-active"]': {
         [`& .${classes.item}`]: {
+          width: "100%",
           opacity: 1,
           transitionDelay: "0.3s",
           [`& .${classes.playBtn}`]: {
