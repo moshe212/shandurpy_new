@@ -126,12 +126,9 @@ function Blog() {
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <div>
-            <h2>דיסק לקח שלמה - שיעורים במוסר, אמונה ופסיכולוגיה</h2>
-          </div>
-          {/* {yt.use && (
+          {yt.use && (
             <YouTube videoId={videoId} onReady={_onReady} opts={opts} />
-          )} */}
+          )}
         </DialogContent>
       </Dialog>
       {!isTablet && <div className={classes.deco} />}
